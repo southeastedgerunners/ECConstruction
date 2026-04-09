@@ -147,12 +147,12 @@
   }
 
   .hero-right {
-    order: -1;
+    order: 0;
     padding: 30px 20px;
   }
 
   .hero-left {
-    order: 0;
+    order: 1;
     min-height: 400px;
   }
 
@@ -178,9 +178,11 @@
   }
 
   .hero-ctas {
-    display: none;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-}
 }
 
 @media (max-width: 480px) {
@@ -191,6 +193,10 @@
 
   .hero-logo {
     height: 80px;
+  }
+
+  .hero-image {
+    height: 200px;
   }
 
   .hero-tagline {
