@@ -136,6 +136,21 @@
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .hero-right {
+    order: -1;
+    padding: 30px 20px;
+  }
+
+  .hero-left {
+    order: 0;
+    min-height: 400px;
+  }
+
   .hero-left-overlay {
     padding: 30px 16px;
     gap: 8px;
@@ -149,10 +164,6 @@
     font-size: 22px;
   }
 
-  .hero-right {
-    padding: 30px 20px;
-  }
-
   .hero-mascot-content {
     gap: 24px;
   }
@@ -162,13 +173,9 @@
   }
 
   .hero-ctas {
-    gap: 12px;
+    display: none;
   }
-
-  .hero-ctas button {
-    padding: 12px;
-    font-size: 14px;
-  }
+}
 }
 
 @media (max-width: 480px) {

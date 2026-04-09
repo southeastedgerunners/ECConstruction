@@ -54,7 +54,10 @@ export default function Header({
       <div className="header-container">
         <div className="header-left">
           <button className="logo-button" onClick={onLogoClick}>
-            <span className="company-name-text">EC Construction</span>
+            <div className="company-name-stack">
+              <span className="company-name-line1">EC</span>
+              <span className="company-name-line2">Construction</span>
+            </div>
           </button>
         </div>
 
