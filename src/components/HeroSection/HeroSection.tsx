@@ -14,8 +14,8 @@ export default function HeroSection({
       <div className="hero-left">
         <div className="hero-background-image">
           <img
-            src="/images/house-construction.webp"
-            alt="House construction"
+            src="/images/Shiny black and gold tape measure.png"
+            alt="EC Construction"
             className="hero-image"
           />
         </div>

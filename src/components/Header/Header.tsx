@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './Header.css'
 
 interface HeaderProps {
@@ -17,6 +18,8 @@ export default function Header({
   onAboutClick,
   onContactClick,
 }: HeaderProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -39,6 +42,7 @@ export default function Header({
     } else {
       scrollToSection('about')
     }
+    setMobileMenuOpen(false)
   }
 
   const handleContact = () => {
@@ -47,6 +51,12 @@ export default function Header({
     } else {
       scrollToSection('contact')
     }
+    setMobileMenuOpen(false)
+  }
+
+  const handleNavClick = (callback: () => void) => {
+    callback()
+    setMobileMenuOpen(false)
   }
 
   return (
@@ -61,7 +71,34 @@ export default function Header({
           </button>
         </div>
 
-        <nav className="nav">
+        <button 
+          className="hamburger-menu"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {mobileMenuOpen && (
+          <nav className="nav mobile-nav">
+            <button className="nav-link" onClick={() => handleNavClick(onLogoClick)}>
+              Home
+            </button>
+            <button className="nav-link" onClick={() => handleNavClick(handleAbout)}>
+              About
+            </button>
+            <button className="nav-link" onClick={() => handleNavClick(onServicesClick)}>
+              Services
+            </button>
+            <button className="nav-link" onClick={() => handleNavClick(handleContact)}>
+              Contact Us
+            </button>
+          </nav>
+        )}
+
+        <nav className="nav desktop-nav">
           <button className="nav-link" onClick={onLogoClick}>
             Home
           </button>
