@@ -32,17 +32,7 @@
   flex-shrink: 0;
 }
 
-.logo-small {
-  height: 80px;
-  width: auto;
-  transition: transform 0.3s ease;
-}
-
-.logo-button:hover .logo-small {
-  transform: scale(1.05);
-}
-
-.company-name {
+.company-name-text {
   font-size: 24px;
   font-weight: 700;
   color: var(--color-gold);

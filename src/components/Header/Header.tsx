@@ -54,13 +54,8 @@ export default function Header({
       <div className="header-container">
         <div className="header-left">
           <button className="logo-button" onClick={onLogoClick}>
-            <img
-              src="/images/Shiny black and gold tape measure.png"
-              alt="EC Construction"
-              className="logo-small"
-            />
+            <span className="company-name-text">EC Construction</span>
           </button>
-          <span className="company-name">EC Construction</span>
         </div>
 
         <nav className="nav">
