@@ -1,0 +1,25 @@
+.services-page {
+  width: 100%;
+  min-height: calc(100vh - 300px);
+}
+
+.back-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .back-button {
+    display: inline-block;
+    background: none;
+    border: none;
+    color: var(--color-gold);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 16px 20px;
+    transition: color 0.3s ease;
+  }
+
+  .back-button:hover {
+    color: var(--color-black);
+  }
+}

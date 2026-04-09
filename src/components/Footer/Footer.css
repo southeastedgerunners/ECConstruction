@@ -1,0 +1,137 @@
+.footer {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+  padding: 100px 40px 40px;
+  border-top: 4px solid var(--color-gold);
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo {
+  height: 80px;
+  width: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.footer-tagline {
+  font-size: 24px;
+  color: var(--color-gold);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.footer-section h4 {
+  color: var(--color-gold);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-off-white);
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: var(--color-off-white);
+  font-size: 16px;
+  padding: 8px 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-gold);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 40px;
+  border-top: 1px solid rgba(199, 154, 59, 0.3);
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-slate);
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 80px 32px 32px;
+  }
+
+  .footer-content {
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+
+  .footer-section h4 {
+    font-size: 18px;
+  }
+
+  .footer-section p {
+    font-size: 15px;
+  }
+
+  .footer-logo {
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 24px 24px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-bottom: 36px;
+  }
+
+  .footer-section {
+    gap: 16px;
+  }
+
+  .footer-logo {
+    height: 60px;
+  }
+
+  .footer-tagline {
+    font-size: 20px;
+  }
+
+  .footer-section h4 {
+    font-size: 16px;
+  }
+
+  .footer-section p {
+    font-size: 14px;
+  }
+
+  .footer-link {
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    padding-top: 24px;
+    font-size: 12px;
+  }
+}
