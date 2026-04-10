@@ -1,11 +1,33 @@
 :root {
+  /* Color Palette */
   --color-black: #1a1a1a;
   --color-gold: #C79A3B;
   --color-maroon: #4A2E33;
   --color-off-white: #f5f5f5;
   --color-slate: #5E6368;
 
+  /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Spacing Scale (mobile-first, multiply by breakpoint factors) */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Section Spacing (mobile baseline) */
+  --section-padding-v: 64px;
+  --section-padding-h: 20px;
+
+  /* Container Max Width */
+  --container-max: 1200px;
+
+  /* Breakpoints */
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
 }
 
 * {
@@ -25,8 +47,81 @@ body {
   background-color: var(--color-off-white);
   color: var(--color-black);
   line-height: 1.6;
+  font-size: 16px;
 }
 
+/* Typography System - 3 Levels */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  :root {
+    --section-padding-v: 80px;
+    --section-padding-h: 32px;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  :root {
+    --section-padding-v: 100px;
+    --section-padding-h: 40px;
+  }
+}
+
+/* Links */
 a {
   color: var(--color-gold);
   text-decoration: none;
@@ -37,6 +132,7 @@ a:hover {
   color: #B8891D;
 }
 
+/* Buttons */
 button {
   font-family: var(--font-sans);
   cursor: pointer;
@@ -44,12 +140,14 @@ button {
   border-radius: 4px;
   font-weight: 600;
   transition: all 0.3s ease;
+  min-height: 48px;
+  font-size: 16px;
 }
 
 button.btn-primary {
   background-color: var(--color-gold);
   color: var(--color-black);
-  padding: 12px 28px;
+  padding: 14px 28px;
   font-size: 16px;
 }
 
@@ -58,10 +156,14 @@ button.btn-primary:hover {
   transform: translateY(-2px);
 }
 
+button.btn-primary:active {
+  transform: translateY(0);
+}
+
 button.btn-secondary {
   background-color: transparent;
   color: var(--color-gold);
-  padding: 12px 28px;
+  padding: 14px 28px;
   font-size: 16px;
   border: 2px solid var(--color-gold);
 }
@@ -74,7 +176,7 @@ button.btn-secondary:hover {
 button.btn-dark {
   background-color: var(--color-black);
   color: var(--color-off-white);
-  padding: 12px 28px;
+  padding: 14px 28px;
   font-size: 16px;
 }
 
@@ -82,40 +184,13 @@ button.btn-dark:hover {
   background-color: var(--color-slate);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
+/* Section Container Base */
+section {
+  padding: var(--section-padding-v) var(--section-padding-h);
 }
 
-h1 {
-  font-size: 48px;
-}
-
-h2 {
-  font-size: 36px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  button.btn-primary,
-  button.btn-secondary,
-  button.btn-dark {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
+.section-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-h);
 }

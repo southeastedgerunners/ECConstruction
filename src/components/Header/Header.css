@@ -1,6 +1,6 @@
 .header {
   background-color: var(--color-black);
-  padding: 16px 0;
+  padding: 12px 0;
   border-bottom: 3px solid var(--color-gold);
   position: sticky;
   top: 0;
@@ -8,13 +8,13 @@
 }
 
 .header-container {
-  max-width: 1400px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--section-padding-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  gap: 20px;
 }
 
 .header-left {
@@ -30,6 +30,7 @@
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
+  min-height: auto;
 }
 
 .company-name-stack {
@@ -40,30 +41,33 @@
 }
 
 .company-name-line1 {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--color-gold);
-  line-height: 1;
-}
-
-.company-name-line2 {
   font-size: 24px;
   font-weight: 700;
   color: var(--color-gold);
   line-height: 1;
 }
 
+.company-name-line2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
 .hamburger-menu {
-  display: none;
+  display: flex;
   flex-direction: column;
   background: none;
   border: none;
   cursor: pointer;
   gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px;
 }
 
 .hamburger-menu span {
-  width: 28px;
+  width: 24px;
   height: 3px;
   background-color: var(--color-gold);
   border-radius: 2px;
@@ -73,7 +77,7 @@
 .nav {
   flex: 1;
   display: flex;
-  gap: 48px;
+  gap: 32px;
 }
 
 .desktop-nav {
@@ -94,6 +98,7 @@
   cursor: pointer;
   transition: color 0.3s ease;
   border-bottom: 2px solid transparent;
+  min-height: auto;
 }
 
 .nav-link:hover {
@@ -103,39 +108,19 @@
 
 .header-ctas {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-shrink: 0;
 }
 
-@media (max-width: 1024px) {
+/* Tablet (768px+) */
+@media (min-width: 768px) {
   .header-container {
     gap: 40px;
-    padding: 0 20px;
+    padding: 0 var(--section-padding-h);
   }
 
   .nav {
-    gap: 32px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 12px 0;
-  }
-
-  .header-container {
-    flex-direction: row;
-    gap: 0;
-    padding: 12px 16px;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-
-  .header-left {
-    gap: 8px;
-    flex: 1;
-    justify-content: center;
+    gap: 48px;
   }
 
   .company-name-line1 {
@@ -144,6 +129,39 @@
 
   .company-name-line2 {
     font-size: 20px;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .header-ctas {
+    display: flex;
+    gap: 16px;
+  }
+
+  .header-ctas button {
+    padding: 12px 20px;
+  }
+}
+
+/* Mobile Menu (hidden until burger clicked) */
+@media (max-width: 767px) {
+  .header-container {
+    gap: 0;
+  }
+
+  .header-left {
+    flex: 1;
+    justify-content: center;
   }
 
   .hamburger-menu {
@@ -168,7 +186,7 @@
   }
 
   .nav-link {
-    padding: 12px 16px;
+    padding: 14px 16px;
     border-bottom: 1px solid rgba(199, 154, 59, 0.2);
     text-align: center;
   }
