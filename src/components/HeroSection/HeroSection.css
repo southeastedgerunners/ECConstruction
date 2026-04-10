@@ -208,13 +208,13 @@
 
   .hero-background-image {
     position: absolute;
-    bottom: 60px;
+    top: 35%;
     left: 50%;
     transform: translateX(-50%);
   }
 
   .hero-image {
-    height: 450px;
+    height: 500px;
   }
 
   .hero-right {
