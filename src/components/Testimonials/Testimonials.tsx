@@ -1,3 +1,4 @@
+import { useScrollFade } from '../../hooks/useScrollFade'
 import './Testimonials.css'
 
 interface Testimonial {
@@ -28,14 +29,29 @@ const TESTIMONIALS: Testimonial[] = [
 ]
 
 export default function Testimonials() {
+  const { ref: headingRef, isVisible: headingVisible } = useScrollFade()
+  const { ref: gridRef, isVisible: gridVisible } = useScrollFade()
+
   return (
     <section className="testimonials-section">
       <div className="testimonials-container">
-        <h2>What Our Clients Say</h2>
+        <h2
+          ref={headingRef}
+          className={`fade-in${headingVisible ? ' is-visible' : ''}`}
+        >
+          What Our Clients Say
+        </h2>
 
-        <div className="testimonials-grid">
+        <div
+          ref={gridRef}
+          className={`testimonials-grid fade-in${gridVisible ? ' is-visible' : ''}`}
+        >
           {TESTIMONIALS.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
+            <div
+              key={index}
+              className="testimonial-card"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <p className="testimonial-quote">"{testimonial.quote}"</p>
               <p className="testimonial-author">— {testimonial.author}</p>
               <p className="testimonial-title">{testimonial.title}</p>

@@ -1,3 +1,4 @@
+import { useScrollFade } from '../../hooks/useScrollFade'
 import './ServicesGrid.css'
 
 interface Service {
@@ -41,17 +42,32 @@ const SERVICES: Service[] = [
 ]
 
 export default function ServicesGrid() {
+  const { ref: headingRef, isVisible: headingVisible } = useScrollFade()
+  const { ref: gridRef, isVisible: gridVisible } = useScrollFade()
+
   return (
     <section className="services-section">
       <div className="services-container">
-        <h2>Our Services</h2>
-        <p className="services-intro">
-          EC Construction specializes in a wide range of construction and remodeling services. From large-scale projects to skilled repairs, we bring professionalism and precision to every job.
-        </p>
+        <div
+          ref={headingRef}
+          className={`fade-in${headingVisible ? ' is-visible' : ''}`}
+        >
+          <h2>Our Services</h2>
+          <p className="services-intro">
+            EC Construction specializes in a wide range of construction and remodeling services. From large-scale projects to skilled repairs, we bring professionalism and precision to every job.
+          </p>
+        </div>
 
-        <div className="services-grid">
-          {SERVICES.map((service) => (
-            <div key={service.title} className="service-card">
+        <div
+          ref={gridRef}
+          className={`services-grid fade-in${gridVisible ? ' is-visible' : ''}`}
+        >
+          {SERVICES.map((service, index) => (
+            <div
+              key={service.title}
+              className="service-card"
+              style={{ transitionDelay: `${index * 60}ms` }}
+            >
               <div className="service-icon"></div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>

@@ -1,3 +1,4 @@
+import { useScrollFade } from '../../hooks/useScrollFade'
 import './CTABanner.css'
 
 interface CTABannerProps {
@@ -9,9 +10,14 @@ export default function CTABanner({
   onRequestQuoteClick,
   onRequestCallClick,
 }: CTABannerProps) {
+  const { ref: contentRef, isVisible: contentVisible } = useScrollFade()
+
   return (
     <section className="cta-banner-section">
-      <div className="cta-banner-content">
+      <div
+        ref={contentRef}
+        className={`cta-banner-content fade-in${contentVisible ? ' is-visible' : ''}`}
+      >
         <h2>Ready to Start Your Project?</h2>
         <p>
           Whether you need a quick quote or want to discuss your project in detail, we're ready to help. Get in touch today.

@@ -1,3 +1,4 @@
+import { useScrollFade } from '../../hooks/useScrollFade'
 import './Gallery.css'
 
 interface GalleryImage {
@@ -15,17 +16,32 @@ const GALLERY_IMAGES: GalleryImage[] = [
 ]
 
 export default function Gallery() {
+  const { ref: headingRef, isVisible: headingVisible } = useScrollFade()
+  const { ref: gridRef, isVisible: gridVisible } = useScrollFade()
+
   return (
     <section className="gallery-section">
       <div className="gallery-container">
-        <h2>Our Work</h2>
-        <p className="gallery-intro">
-          From concept to completion, we deliver quality construction and remodeling work that stands the test of time.
-        </p>
+        <div
+          ref={headingRef}
+          className={`fade-in${headingVisible ? ' is-visible' : ''}`}
+        >
+          <h2>Our Work</h2>
+          <p className="gallery-intro">
+            From concept to completion, we deliver quality construction and remodeling work that stands the test of time.
+          </p>
+        </div>
 
-        <div className="gallery-grid">
+        <div
+          ref={gridRef}
+          className={`gallery-grid fade-in${gridVisible ? ' is-visible' : ''}`}
+        >
           {GALLERY_IMAGES.map((image, index) => (
-            <div key={index} className="gallery-item">
+            <div
+              key={index}
+              className="gallery-item"
+              style={{ transitionDelay: `${index * 80}ms` }}
+            >
               <img src={image.src} alt={image.alt} />
               <div className="gallery-overlay"></div>
             </div>
