@@ -42,15 +42,12 @@ export default function Testimonials() {
           What Our Clients Say
         </h2>
 
-        <div
-          ref={gridRef}
-          className={`testimonials-grid fade-in${gridVisible ? ' is-visible' : ''}`}
-        >
+        <div ref={gridRef} className="testimonials-grid">
           {TESTIMONIALS.map((testimonial, index) => (
             <div
               key={index}
-              className="testimonial-card"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className={`testimonial-card fade-in${gridVisible ? ' is-visible' : ''}`}
+              style={{ animationDelay: `${index * 120}ms` }}
             >
               <p className="testimonial-quote">"{testimonial.quote}"</p>
               <p className="testimonial-author">— {testimonial.author}</p>

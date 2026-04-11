@@ -52,15 +52,12 @@ export default function WhyChooseUs() {
             </p>
           </div>
 
-          <div
-            ref={listRef}
-            className={`reasons-list fade-in${listVisible ? ' is-visible' : ''}`}
-          >
+          <div ref={listRef} className="reasons-list">
             {REASONS.map((reason, index) => (
               <div
                 key={reason.title}
-                className="reason-item"
-                style={{ transitionDelay: `${index * 80}ms` }}
+                className={`reason-item fade-in${listVisible ? ' is-visible' : ''}`}
+                style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="reason-icon"></div>
                 <div>

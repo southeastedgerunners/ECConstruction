@@ -32,15 +32,12 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div
-          ref={gridRef}
-          className={`gallery-grid fade-in${gridVisible ? ' is-visible' : ''}`}
-        >
+        <div ref={gridRef} className="gallery-grid">
           {GALLERY_IMAGES.map((image, index) => (
             <div
               key={index}
-              className="gallery-item"
-              style={{ transitionDelay: `${index * 80}ms` }}
+              className={`gallery-item fade-in${gridVisible ? ' is-visible' : ''}`}
+              style={{ animationDelay: `${index * 80}ms` }}
             >
               <img src={image.src} alt={image.alt} />
               <div className="gallery-overlay"></div>

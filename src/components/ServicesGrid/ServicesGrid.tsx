@@ -58,15 +58,12 @@ export default function ServicesGrid() {
           </p>
         </div>
 
-        <div
-          ref={gridRef}
-          className={`services-grid fade-in${gridVisible ? ' is-visible' : ''}`}
-        >
+        <div ref={gridRef} className="services-grid">
           {SERVICES.map((service, index) => (
             <div
               key={service.title}
-              className="service-card"
-              style={{ transitionDelay: `${index * 60}ms` }}
+              className={`service-card fade-in${gridVisible ? ' is-visible' : ''}`}
+              style={{ animationDelay: `${index * 60}ms` }}
             >
               <div className="service-icon"></div>
               <h3>{service.title}</h3>
